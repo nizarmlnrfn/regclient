@@ -135,7 +135,11 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      if (SCRIPT_URL === "TEMPEL_URL_WEB_APP_APPS_SCRIPT_DI_SINI") {") {
+      if (
+  !SCRIPT_URL ||
+  SCRIPT_URL.includes("TEMPEL_URL_WEB_APP") ||
+  !SCRIPT_URL.endsWith("/exec")
+) {
         showStatus("Form belum terhubung ke server. Admin perlu memasukkan URL Web App Apps Script terlebih dahulu.", "error");
         return;
       }
